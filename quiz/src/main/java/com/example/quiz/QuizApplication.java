@@ -17,7 +17,7 @@ public class QuizApplication {
 	
 	/**起動メソッド*/
 	public static void main(String[] args) {
-		SpringApplication.run(QuizApplication.class, args).getBean(QuizApplication.class).execute();
+		SpringApplication.run(QuizApplication.class, args);
 		
 	}
 	
@@ -27,21 +27,23 @@ public class QuizApplication {
 	
 	/**実行メソッド*/
 	private void execute() {
-//		//登録処理
-//		setup();
-//		//全件表示
-//		showList();
-//		//1件取得
-//		showOne();
-//		//更新処理
-//		updateQuiz();
-//		//削除処理
-//		deleteQuiz();
-//		//クイズを実行する
+		//登録処理
+		setup();
+		//全件表示
+		showList();
+		//1件取得
+		showOne();
+		//更新処理
+		updateQuiz();
+		//削除処理
+		deleteQuiz();
+		//クイズを実行する
 		doQuiz();
 	}
+	
 	/**== クイズを5件登録します ==*/
 	private void setup() {
+		System.out.println("-- 登録処理開始 --");
 		//entityを作成
 		Quiz quiz1 = new Quiz(null, "JAVAはオブジェクト指向言語である", true, "登録太郎");
 		
@@ -60,7 +62,7 @@ public class QuizApplication {
 		//entityを作成
 		Quiz quiz5 = new Quiz(null, "「Spring MVC」が実装している「デザインパターン」で"
 				+ "全てのリクエストを１つのコントローラで受け取るパターンは"
-				+ "「シングルコントローラ・パターン」である", true, "登録太郎");
+				+ "「シングルコントローラ・パターン」である", false, "登録太郎");
 		
 		//リストにエンティティを格納
 		List<Quiz> quizList = new ArrayList<>();
@@ -105,7 +107,6 @@ public class QuizApplication {
 		//更新実行
 		service.updateQuiz(quiz1);
 		//更新確認
-		System.out.println("更新したデータは" + quiz1 + "です");
 		System.out.println(" -- 更新処理完了 -- ");
 	}
 	

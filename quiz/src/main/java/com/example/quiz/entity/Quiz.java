@@ -18,5 +18,5 @@ public class Quiz {
 	/**クイズの回答*/
 	private Boolean answer;
 	/**クイズの作成者*/
-	private String auther;
+	private String author;
 }
